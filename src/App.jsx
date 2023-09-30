@@ -3,6 +3,8 @@ import config from './conf/config'
 import Weather from './Components/Weather'
 import './Components/Weather.css'
 import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import ParticlesBg from './Components/ParticlesBg'
 
 function App() {
 
@@ -39,13 +41,19 @@ function App() {
 
 
   return (
-    <div className='App'>
-      <div className="flex justify-center">
-        <input type="text" id='input' placeholder="Enter City Name" className='bg-transparent' spellCheck="false" onChange={e => setCity(e.target.value)} value={city} onKeyDown={fetchData} />
-      </div>
-      {data.name ? <Weather weatherData={data} /> : < ToastContainer theme='dark' /> }
 
-    </div>
+    <>
+
+      <div className='App'>
+      
+        <div className="area">
+          <input type="text" id='input' placeholder="Enter City Name" className='bg-transparent' spellCheck="false" onChange={e => setCity(e.target.value)} value={city} onKeyDown={fetchData} />
+        </div>
+
+        {data.name ? <Weather weatherData={data} /> : < ToastContainer theme='dark'/>}
+      </div>
+      <ParticlesBg />
+    </>
 
   )
 }

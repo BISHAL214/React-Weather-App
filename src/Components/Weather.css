@@ -1,21 +1,72 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
     height: 100vh;
+    /* background-image: url('https://images.pexels.com/photos/1028600/pexels-photo-1028600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); */
+    background: rgb(25, 161, 239);
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: rgb(12, 12, 12);
-    background: linear-gradient(120deg, #345ef3, #ef2162);
+    font-family: 'Mulish', sans-serif;
 }
 
-
-.container {
-    background-color: transparent;
-    position: relative;
+.App {
     width: 100%;
-    height: 100%;
-    font-weight: bold;
+    max-width: 470px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.2px);
+    -webkit-backdrop-filter: blur(2.2px);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    color: #070707;
+    margin: 10px auto;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
+
+/* @media screen and (max-width: 600px) {
+    .appContainer {
+        height: 100vh;
+        width: 95vw;
+        margin: 0;
+    }
+
+    .area {
+        margin-top: 10px;
+    }
+  } */
+
+.area {
+    /* background-color: rgb(241, 149, 28); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* .container {
+    position: relative;
+    height: auto;
+    width: 10%;
+    font-weight: bold;
+    background-color: green;
+} */
 
 .headerContainer {
     display: flex;
@@ -23,18 +74,10 @@
     flex-direction: column;
 }
 
-.timeCountry {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.day {
+    padding-top: 20px;
 }
 
-.latlon {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-}
 
 .header {
     display: flex;
@@ -51,26 +94,69 @@
     padding: 5px;
 }
 
-.maxmin {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    align-items: center;
-    background-color: transparent;
+.temp p{
+    font-size: 40px;
 }
-.extra {
+
+.temp h1 {
+    font-size: 20px;
+}
+
+.container .maxmin {
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+    padding: 0px;
+    align-items: center;
+}
+
+.max, .min {
+    display: flex;
+    padding: 10px;
+}
+
+
+.maximum  {
+
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
-.humpre {
-    padding: 10px;
-    background-color: transparent;
+.minimum {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    justify-content:center;
 }
+
+.humpre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+.hum, .pre {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+#humicon, #presicon  {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.humidity, .pressure  {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
 
 .wind {
     display: flex;
@@ -94,18 +180,40 @@
     width: 100%
 }
 
-.sun {
+.direction, .speed {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background-color: transparent;
-    padding: 10px;
 }
 
+#direicon, #speedicon {
+    width: 40px;
+    height: 40px;
+}
+
+.winddire, .windspeed  {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
 #input {
-    border: 2px solid black;
+    border: 2px solid rgb(12, 12, 12);
+    border-radius: 10px;
+    padding: 5px;
+    color: rgb(17, 17, 17);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#input:hover {
+    background: transparent;
 }
 
 #input::placeholder {
-    color: black
+    text-transform: capitalize;
+    color: rgb(9, 9, 9);
+    font-weight: bold;
 }
