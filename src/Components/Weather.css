@@ -245,7 +245,6 @@ body {
 
 #input:hover {
     background: transparent;
-    width: 50%;
 }
 
 #input::placeholder {

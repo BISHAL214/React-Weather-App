@@ -4,6 +4,8 @@ import './Weather.css'
 import { motion } from 'framer-motion'
 
 export default function Weather({ weatherData }) {
+
+
     return (
 
         <motion.div 
