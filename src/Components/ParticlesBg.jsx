@@ -24,7 +24,7 @@ export default function ParticlesBg() {
                     //     value: "#0d47a1",
                     // },
                 },
-                fpsLimit: 240,
+                fpsLimit: 900,
                 interactivity: {
                     events: {
                         onClick: {
