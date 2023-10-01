@@ -1,10 +1,20 @@
 import React from 'react'
 import moment from 'moment'
 import './Weather.css'
+import { motion } from 'framer-motion'
 
 export default function Weather({ weatherData }) {
     return (
-        <div className='container'>
+
+        <motion.div 
+        initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01]
+      }}
+        className='container'>
 
             <div className='appContainer'>
 
@@ -31,7 +41,7 @@ export default function Weather({ weatherData }) {
                     <div className="max">
                         <div className='maximum'>
 
-                            <p>{weatherData?.main?.temp_max}°C</p>
+                            <p id='size'>{weatherData?.main?.temp_max}°C</p>
                             <h5>Maximum Temperature</h5>
 
                         </div>
@@ -40,7 +50,7 @@ export default function Weather({ weatherData }) {
                     <div className="min">
                         <div className='minimum'>
 
-                            <p>{weatherData?.main?.temp_min}°C</p>
+                            <p id='size'>{weatherData?.main?.temp_min}°C</p>
                             <h5>Minimum Temperature</h5>
 
                         </div>
@@ -53,7 +63,7 @@ export default function Weather({ weatherData }) {
                     <div className='hum'>
                         <img src="./humidity.svg" alt='humidity' id='humicon' />
                         <div className='humidity'>
-                            <p> {weatherData?.main?.humidity}%</p>
+                            <p id='size1'> {weatherData?.main?.humidity}%</p>
                             <h5>Humidity</h5>
                         </div>
 
@@ -63,7 +73,7 @@ export default function Weather({ weatherData }) {
                         <img src="./pressure.png" alt="pressure" id='presicon' />
                         <div className='pressure'>
 
-                            <p id='pre'>{weatherData?.main?.pressure}</p>
+                            <p id='size1'>{weatherData?.main?.pressure}</p>
 
                             <h5>Pressure</h5>
 
@@ -80,8 +90,8 @@ export default function Weather({ weatherData }) {
                         <img src="./wind-direction.png" alt="wind-direction" id='direicon' />
                         <div className='winddire'>
 
-                            <p>{weatherData?.wind?.deg}°</p>
-                            <h5>Direction</h5>
+                            <p id='size1'>{weatherData?.wind?.deg}°</p>
+                            <h5>Angle</h5>
 
                         </div>
 
@@ -90,7 +100,7 @@ export default function Weather({ weatherData }) {
                     <div className='speed'>
                         <img src="./wind-speed.png" alt="wind-direction" id='speedicon' />
                         <div className='windspeed'>
-                            <p>{weatherData?.wind?.speed}km/h </p>
+                            <p id='size1'>{weatherData?.wind?.speed}km/h </p>
                             <h5>Speed</h5>
 
                         </div>
@@ -101,7 +111,10 @@ export default function Weather({ weatherData }) {
 
             </div>
 
-        </div>
+        </motion.div>
+
+
+
     )
 }
 

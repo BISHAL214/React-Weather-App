@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import config from './conf/config'
 import Weather from './Components/Weather'
 import './Components/Weather.css'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import ParticlesBg from './Components/ParticlesBg'
 
 function App() {
+
 
   const [data, setData] = useState([])
 
@@ -52,7 +52,6 @@ function App() {
 
         {data.name ? <Weather weatherData={data} /> : < ToastContainer theme='dark'/>}
       </div>
-      <ParticlesBg />
     </>
 
   )
