@@ -18,6 +18,10 @@ export default function Weather({ weatherData }) {
       }}
         className='container'>
 
+            <div className='bg1'>
+
+            </div>
+
             <div className='appContainer'>
 
                 <p className="day">{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
