@@ -9,6 +9,7 @@ import DataContainer from "./DataContainer";
 import { Button, FormControlLabel } from "@mui/material";
 import { MaterialUISwitch } from "./ThemeToggle";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { config } from "../../conf/config";
 
 const Map = () => {
   const [centerLat, setCenterLat] = useState(null);
@@ -59,7 +60,7 @@ const Map = () => {
     color: "text-white",
     bgColor: "bg-[#333333]",
     tileLayerUrl:
-      "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
+      `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${config.mapsApiKey}`,
   };
   const lightTheme = {
     color: "text-[#333333]",
