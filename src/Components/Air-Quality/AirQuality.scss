@@ -1,0 +1,87 @@
+.air-quality-container {
+    width: 95%;
+    height: 400px;
+    position: relative;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01),
+      0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09),
+      0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 23px;
+    transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+      // margin: 0;
+      // border-radius: 0;
+      // width: 100vw;
+      display: none;
+    }
+
+    .air-header {
+        text-transform: capitalize;
+        letter-spacing: 4px;
+        font-size: 1.5rem;
+        font-weight: 500;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        line-height: 135%;
+
+        // @media screen and (max-width: 640px) {
+        //   font-size: 1.1rem;
+        //   display: flex;
+        //   justify-content: center;
+        // }
+    }
+
+    .air-pollutants-details {
+        display: flex;
+        flex-direction: column;
+
+
+        // @media screen and (max-width: 640px) {
+          
+        // }
+
+        .pollutes {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+
+            // @media screen and (max-width: 640px) {
+            //   font-size: 1rem;
+            // }
+        }
+
+        .quantity {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1rem;
+            font-weight: 590;
+            // @media screen and (max-width: 640px) {
+            //   font-size: 0.7rem;
+            // }
+        }
+
+    }
+
+}
+
+.dark-bg {
+    background: linear-gradient(
+      82.3deg,
+      rgba(150, 93, 233, 1) 10.8%,
+      rgba(99, 88, 238, 1) 94.3%
+    );
+  }
+  
+  .light-bg {
+    background: linear-gradient(
+      82.3deg,
+      rgb(186, 233, 93) 10.8%,
+      rgb(238, 88, 165) 94.3%
+    );
+  }

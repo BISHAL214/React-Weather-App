@@ -1,93 +1,149 @@
-import React, { useState } from 'react'
-import config from './conf/config'
-import Weather from './Components/Weather'
-import './Components/Weather.css'
-import { toast, ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
-import weatherBackground from './Components/Background'
+import React, { useEffect, useState } from "react";
+import {
+  AirQuality,
+  DailyForecast,
+  Input,
+  LocationCard,
+  WeatherDisplay,
+  WeatherForeCast,
+} from "./Components/index.js";
+import useFetch from "./hooks/useFetch.js";
+import "./App.css";
+import Navbar from "./Components/Navbar/Navbar.jsx";
 
-function App() {
+export default function App() {
+  const [currentLocation, setCurrentLocation] = useState(null);
+  const [currentLocationWeatherData, setCurrentLocationWeatherData] =
+    useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  const [bg1, setBg1] = useState()
-  const [bg2, setBg2] = useState()
-  const [bg3, setBg3] = useState()
-  const [bg4, setBg4] = useState()
+  const fetchData = useFetch();
 
-    const backgroundVideoClouds = <video src="./Clouds.mp4" autoPlay muted loop></video>
-    const backgroundVideoRain = <video src="./Rain.mp4" autoPlay muted loop></video>
-    const backgroundVideoHaze = <video src="./Haze.mp4" autoPlay muted loop></video>
-    const backgroundVideoSnow = <video src="./Snow.mp4" autoPlay muted loop></video>
+  const [togClass, setTogClass] = useState("dark");
+  const themes = localStorage.getItem("theme");
 
-
-  const [data, setData] = useState([])
-
-  const [city, setCity] = useState('')
-
-  const searchBtn = document.getElementById('search')
-
-  const fetchData = async (evt) => {
-
-    if (evt.key === "Enter" || evt.value === searchBtn) {
-      await fetch(`${config.weatherApiUrl}${city}&appid=${config.weatherApiKey}`)
-        .then(res => res.json())
-        .then(result => {
-          setData(result)
-          setCity('')
-          setBg1(backgroundVideoClouds)
-          setBg2(backgroundVideoRain)
-          setBg3(backgroundVideoHaze)
-          setBg4(backgroundVideoSnow)
-          toastifySuccess()
-          console.log(result)
-        })
+  function keepTheme() {
+    if (localStorage.getItem("theme")) {
+      if (localStorage.getItem("theme") === "theme-dark") {
+        localStorage.setItem("theme", "theme-dark");
+      } else if (localStorage.getItem("theme") === "theme-light") {
+        localStorage.setItem("theme", "theme-light");
+      }
+    } else {
+      localStorage.setItem("theme", "theme-dark");
     }
   }
 
-  const toastifySuccess = () => {
-    toast("Oops! Invalid City", {
-      position: 'top-right',
-      autoClose: 5000,
-      closeOnClick: true,
-      draggable: false,
-    });
-  }
+  useEffect(() => {
+    keepTheme();
+  }, []);
 
+  useEffect(() => {
+    if (localStorage.getItem("theme") === "theme-dark") {
+      setTogClass("dark");
+    } else if (localStorage.getItem("theme") === "theme-light") {
+      setTogClass("light");
+    }
+  }, [themes]);
 
+  const handleOnClick = () => {
+    if (localStorage.getItem("theme") === "theme-dark") {
+      localStorage.setItem("theme", "theme-light");
+      setTogClass("light");
+    } else {
+      localStorage.setItem("theme", "theme-dark");
+      setTogClass("dark");
+    }
+  };
 
+  const url = `q=${currentLocation?.latitude},${currentLocation?.longitude}&aqi=yes&alerts=yes`;
+
+  useEffect(() => {
+    setLoading(true);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setCurrentLocation(position?.coords);
+        currentLocation &&
+          fetchData(url)
+            .then((res) => {
+              setCurrentLocationWeatherData(res);
+              setLoading(false);
+            })
+            .catch((err) => {
+              setError(err);
+            });
+      },
+      (err) => {
+        console.log(err.message);
+      }
+    );
+  }, [url]);
+
+  const handleApiSubmit = (data) => {
+    setLoading(true);
+    fetchData(`q=${data?.city}&aqi=yes&alerts=yes`)
+      .then((res) => {
+        setCurrentLocationWeatherData(res);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  };
 
   return (
-
-    <>
-
-      <div className='App'>
-
-
-      <div className='bg1'>
-
-      {data?.weather && data?.weather[0]?.main === "Clouds" ? 
-                document.body.style.background = bg1
-                : null}
-      {data?.weather && data?.weather[0]?.main === "Rain" ? 
-                document.body.style.background = bg2
-                : null}
-      {data?.weather && data?.weather[0]?.main === "Haze" ? 
-                document.body.style.background = bg3
-                : null}
-      {data?.weather && data?.weather[0]?.main === "Snow" ? 
-                document.body.style.background = bg4
-                : null}
-                
-      </div>
-      
-        <div className="area">
-          <input type="text" id='input' placeholder="Enter City Name" className='bg-transparent' spellCheck="false" onChange={e => setCity(e.target.value)} value={city} onKeyDown={fetchData} />
+    <div
+      className={`app-container ${
+        togClass === "dark" ? "bg-[#333333]" : "bg-white"
+      }`}
+    >
+      <>
+        {/* <Input submit={handleApiSubmit} /> */}
+        <Navbar
+          toggle={togClass}
+          handleClick={handleOnClick}
+          handle={handleApiSubmit}
+        />
+        <div className=" flex md:flex-row max-md:flex-col">
+          <div className=" flex flex-col">
+            <div className="flex md:flex-row max-md:flex-col md:items-between">
+              <LocationCard
+                toggle={togClass}
+                loading={loading}
+                error={error}
+                data={currentLocationWeatherData}
+              />
+              <WeatherDisplay
+                toggle={togClass}
+                loading={loading}
+                error={error}
+                data={currentLocationWeatherData}
+              />
+            </div>
+            <div className=" w-full flex sm:flex-row max-sm:flex-col">
+              <WeatherForeCast
+                toggle={togClass}
+                data={currentLocationWeatherData?.forecast}
+                loading={loading}
+                error={error}
+              />
+              <AirQuality
+                toggle={togClass}
+                loading={loading}
+                error={error}
+                data={currentLocationWeatherData}
+              />
+            </div>
+          </div>
+          <DailyForecast
+            toggle={togClass}
+            data={currentLocationWeatherData?.forecast?.forecastday}
+            loading={loading}
+            error={error}
+          />
         </div>
-
-        {data.name ? <Weather weatherData={data} background={bg1} /> : < ToastContainer theme='dark'/>}
-      </div>
-    </>
-
-  )
+      </>
+    </div>
+  );
 }
-
-export default App
