@@ -11,11 +11,11 @@ const HourForeCastFull = ({ data, loading, error, toggle, light, dark, index }) 
     return time;
   };
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
-      <div className=" flex justify-center flex-row pl-4 pr-4 min-h-full">
+      <div className=" flex justify-center flex-row pl-4 pr-4 min-h-full max-sm:gap-5 max-xl:gap-4">
         {hoursData &&
           hoursData[index]?.hour?.map((hour, index) => (
             <div key={index} className=" flex flex-col justify-around items-center">

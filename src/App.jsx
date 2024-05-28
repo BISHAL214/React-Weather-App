@@ -57,7 +57,7 @@ export default function App() {
     }
   };
 
-  const url = `q=${currentLocation?.latitude},${currentLocation?.longitude}&aqi=yes&alerts=yes`;
+  const url = `q=${currentLocation?.latitude},${currentLocation?.longitude}&aqi=yes&alerts=yes`;  
 
   useEffect(() => {
     setLoading(true);

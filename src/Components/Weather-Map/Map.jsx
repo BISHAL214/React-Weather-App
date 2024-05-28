@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, createRef } from "react";
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -9,7 +9,9 @@ import DataContainer from "./DataContainer";
 import { Button, FormControlLabel } from "@mui/material";
 import { MaterialUISwitch } from "./ThemeToggle";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import CloseIcon from "@mui/icons-material/Close";
 import { config } from "../../conf/config";
+import AnimateContainer from "./AnimateContainer";
 
 const Map = () => {
   const [centerLat, setCenterLat] = useState(null);
@@ -18,9 +20,11 @@ const Map = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [showDataContainer, setShowDataContainer] = useState(false);
 
   const [togClass, setTogClass] = useState("dark");
   const themes = localStorage.getItem("theme");
+  const dataContainerRef = createRef();
 
   function keepTheme() {
     if (localStorage.getItem("theme")) {
@@ -59,8 +63,7 @@ const Map = () => {
   const darkTheme = {
     color: "text-white",
     bgColor: "bg-[#333333]",
-    tileLayerUrl:
-      `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${config.mapsApiKey}`,
+    tileLayerUrl: `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${config.mapsApiKey}`,
   };
   const lightTheme = {
     color: "text-[#333333]",
@@ -102,6 +105,7 @@ const Map = () => {
     const { lat, lng } = event.latlng;
     setMarkerPosition([lat, lng]);
     setLoading(true);
+    setShowDataContainer(true);
     fetchData(`q=${lat},${lng}&aqi=yes&alerts=yes`)
       .then((res) => {
         setData(res);
@@ -145,9 +149,10 @@ const Map = () => {
         center={[centerLat, centerLong]}
         zoom={10}
         style={{
-          height: "70vh",
-          width: "100vw",
+          height: "100vh",
+          width: "100%",
           backgroundColor: mapBackground,
+          position: "relative",
         }}
         maxZoom={18}
         minZoom={5}
@@ -164,27 +169,43 @@ const Map = () => {
           <Marker position={markerPosition} icon={customIcon}></Marker>
         )}
       </MapContainer>
-      <div className="data-container flex flex-row items-start gap-10">
-        <DataContainer
-          dark={darkTheme}
-          light={lightTheme}
-          toggle={togClass}
-          lat={markerPosition[0]}
-          long={markerPosition[1]}
-          data={data}
-          loading={loading}
-          error={error}
-        />
-          <FormControlLabel
-            control={
-              <MaterialUISwitch
-                sx={{ mt: 2, top: 0 }}
-                onClick={handleOnClick}
-                defaultChecked
-              />
-            }
-          />
-      </div>
+
+      {showDataContainer && (
+        <div
+          className={`data-container ${
+            togClass === "dark" ? darkTheme.bgColor : lightTheme.bgColor
+          }`}
+          ref={dataContainerRef}
+        >
+          <DataContainer
+            dark={darkTheme}
+            light={lightTheme}
+            toggle={togClass}
+            lat={markerPosition && markerPosition[0]}
+            long={markerPosition && markerPosition[1]}
+            data={data}
+            loading={loading}
+            error={error}
+          ></DataContainer>
+          <div className=" flex flex-col justify-center items-center pl-3 gap-5">
+            <FormControlLabel
+              control={
+                <MaterialUISwitch
+                  sx={{ mt: 2, top: 0 }}
+                  onClick={handleOnClick}
+                  defaultChecked
+                />
+              }
+            />
+            <button
+              className="flex justify-start items-start"
+              onClick={() => setShowDataContainer(false)}
+            >
+              <CloseIcon />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

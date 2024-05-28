@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import HourForeCastFull from "./HourForeCastFull";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import "./Map.scss"
 
 const DataContainer = ({
   data,
@@ -13,6 +14,7 @@ const DataContainer = ({
   toggle,
   dark,
   light,
+  ref
 }) => {
   function convertCoordinateToDMS(coordinate, isLatitude) {
     const absoluteCoordinate = Math.abs(coordinate);
@@ -67,11 +69,9 @@ const DataContainer = ({
 
   const monthName = monthNames[monthIndex];
 
-  console.log(index);
-
   return (
-    <div className=" min-h-[30vh] flex flex-row">
-      <div className="flex flex-col min-w-[10vw] gap-3 pl-3 pt-3">
+    <div className="info-container">
+      <div className="flex flex-col max-sm:w-[80vw] max-lg:w-[40vw] max-xl:w-[35vw] gap-2.5 pl-2.5 pt-2.5 pr-2.5 xl:pl-4 xl:pt-4">
         {loading ? (
           <Skeleton
             sx={
@@ -194,7 +194,7 @@ const DataContainer = ({
         )}
       </div>
       <Divider
-        sx={{ bgcolor: "#fff" }}
+        sx={{ bgcolor: "#fff", position: "relative", top: "10px" }}
         orientation="vertical"
         variant="middle"
         flexItem

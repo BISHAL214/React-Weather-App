@@ -64,8 +64,57 @@
 }
 
 
-// .data-container {
-//     border-top: 0.5px solid #f08080;
-//     padding-right: 0;
-//     margin: 0;
-// }
+.info-container {
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (max-width: 600px) {
+  }
+
+}
+.data-container {
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: absolute;
+  z-index: 1000;
+  gap: 10px;
+  width: 100%;
+
+
+  @media screen and (max-width: 1024px) {
+    overflow-x: scroll;
+  }
+  @media screen and (max-height: 1366px) {
+    height: 30vh;
+  }
+  @media screen and (max-height: 1366px) and (max-width: 1024px) {
+    height: 20vh;
+  }
+
+  @media screen and (max-height: 820px) {
+    height: 34vh;
+  }
+  @media screen and (max-height: 740px) {
+    height: 34vh;
+  }
+  @media screen and (max-height: 667px) {
+    height: 40vh;
+  }
+
+}
+
+
+.animate-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+  z-index: 1000;
+  width: 100vw;
+  height: 30vh;
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
+}
