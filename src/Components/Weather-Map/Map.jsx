@@ -201,7 +201,7 @@ const Map = () => {
               className="flex justify-start items-start"
               onClick={() => setShowDataContainer(false)}
             >
-              <CloseIcon />
+              <CloseIcon sx={{ width: "2rem", height: "2rem" }}/>
             </button>
           </div>
         </div>

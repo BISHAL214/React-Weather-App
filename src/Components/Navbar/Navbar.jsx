@@ -62,7 +62,7 @@ export default function Navbar({ handle, handleClick, toggle }) {
                     toggle === "dark" ? "text-white" : "text-[#333333]"
                   }`}
                 >
-                  Weather Map{" "}
+                  Weather Map
                 </span>
               </button>
             </NavLink>
@@ -129,6 +129,14 @@ export default function Navbar({ handle, handleClick, toggle }) {
                 to={"/weather-map"}
               >
                 Weather Map
+              </NavLink>
+              <NavLink
+                className={`pt-5 pl-3 flex items-start font-thin font-serif ${
+                  toggle === "dark" ? "text-white" : "text-[#333333]"
+                }`}
+                to={"/daily-forecast"}
+              >
+                Daily Forecast
               </NavLink>
             </Drawer>
             <FormControlLabel

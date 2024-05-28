@@ -32,16 +32,16 @@ const Card = (props) => {
   // console.log(data);
 
   return (
-    <div className={`${toggle === "dark" ? "dark-bg" : "light-bg"} card`}>
+    <div className={`${toggle === "dark" ? "dark-bg" : "bg-white"} card`}>
       <div className="card-header">
         <span  className={toggle === "dark" ? "text-[#fffcfc]" : "text-[#333333]"}>
           {loading ? (
             <Skeleton
-              sx={
-                toggle === "dark"
-                  ? { bgcolor: "#E2DFD2" }
-                  : { bgcolor: "#333333" }
-              }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
               variant="rounded"
             />
           ) : (
@@ -52,11 +52,11 @@ const Card = (props) => {
           <br />
           {loading ? (
             <Skeleton
-              sx={
-                toggle === "dark"
-                  ? { bgcolor: "#E2DFD2" }
-                  : { bgcolor: "#333333" }
-              }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
               height={20}
             />
           ) : (
@@ -66,11 +66,11 @@ const Card = (props) => {
         <span  className={toggle === "dark" ? "text-[#fffcfc]" : "text-[#333333]"}>
           {loading ? (
             <Skeleton
-              sx={
-                toggle === "dark"
-                  ? { bgcolor: "#E2DFD2" }
-                  : { bgcolor: "#333333" }
-              }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
               height={20}
             />
           ) : (
@@ -82,11 +82,11 @@ const Card = (props) => {
       <div className=" flex justify-start mt-4">
         {loading ? (
           <Skeleton
-            sx={
-              toggle === "dark"
-                ? { bgcolor: "#E2DFD2" }
-                : { bgcolor: "#333333" }
-            }
+          sx={
+            toggle === "dark"
+              ? { bgcolor: "#E2DFD2" }
+              : null
+          }
             variant="circular"
             width={60}
             height={60}
@@ -99,11 +99,11 @@ const Card = (props) => {
       <span  className={toggle === "dark" ? "text-[#fffcfc] temp" : "text-[#333333] temp"}>
         {loading ? (
           <Skeleton
-            sx={
-              toggle === "dark"
-                ? { bgcolor: "#E2DFD2" }
-                : { bgcolor: "#333333" }
-            }
+          sx={
+            toggle === "dark"
+              ? { bgcolor: "#E2DFD2" }
+              : null
+          }
             width={240}
             height={100}
           />

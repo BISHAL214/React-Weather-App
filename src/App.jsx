@@ -10,6 +10,7 @@ import {
 import useFetch from "./hooks/useFetch.js";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar.jsx";
+import DailyForeCast from "./Components/Menu-Daily-Forecast/DailyForeCast.jsx";
 
 export default function App() {
   const [currentLocation, setCurrentLocation] = useState(null);
@@ -57,7 +58,7 @@ export default function App() {
     }
   };
 
-  const url = `q=${currentLocation?.latitude},${currentLocation?.longitude}&aqi=yes&alerts=yes`;  
+  const url = `q=${currentLocation?.latitude},${currentLocation?.longitude}&aqi=yes&alerts=yes`;
 
   useEffect(() => {
     setLoading(true);
@@ -105,7 +106,7 @@ export default function App() {
           handleClick={handleOnClick}
           handle={handleApiSubmit}
         />
-        <div className=" flex md:flex-row max-md:flex-col">
+        <div className="flex md:flex-row max-md:flex-col md:pl-[16px]">
           <div className=" flex flex-col">
             <div className="flex md:flex-row max-md:flex-col md:items-between">
               <LocationCard

@@ -58,7 +58,7 @@
 
     .city-zone {
       word-break: break-all;
-      font-weight: 800;
+      font-weight: 500;
       font-size: 2.6rem;
 
       @media screen and (max-width: 768px) {
@@ -68,8 +68,8 @@
 
     .lat-long {
       word-break: break-all;
-      font-weight: 800;
-      font-size: 15px;
+      font-weight: 400;
+      font-size: 158x;
       line-height: 135%;
     }
 
@@ -78,7 +78,7 @@
       justify-content: center;
       align-items: center;
       padding-right: 25px;
-      font-weight: 800;
+      font-weight: 400;
       font-size: 2rem;
 
       @media screen and (max-width: 768px) {
@@ -99,7 +99,6 @@
     gap: 3rem;
 
     h1 {
-      font-weight: 700;
       font-size: 35px;
       @media screen and (max-width: 640px) {
         font-size: 27px;
@@ -108,7 +107,6 @@
 
     span {
       font-size: 20px;
-      font-weight: 700;
       left: 4px;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       @media screen and (max-width: 640px) {
@@ -181,13 +179,5 @@
     82.3deg,
     rgba(150, 93, 233, 1) 10.8%,
     rgba(99, 88, 238, 1) 94.3%
-  );
-}
-
-.light-bg {
-  background: linear-gradient(
-    82.3deg,
-    rgb(186, 233, 93) 10.8%,
-    rgb(238, 88, 165) 94.3%
   );
 }

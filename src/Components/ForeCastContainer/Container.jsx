@@ -61,11 +61,11 @@ const Container = ({ hoursData, loading, error, toggle }) => {
     <div className="forecast-container">
       {loading ? (
         <Skeleton
-          sx={
-            toggle === "dark"
-              ? { bgcolor: "#E2DFD2", marginLeft: "10px" }
-              : { bgcolor: "#333333", marginLeft: "10px" }
-          }
+        sx={
+          toggle === "dark"
+            ? { bgcolor: "#E2DFD2", marginLeft: "10px" }
+            : {marginLeft: "10px"}
+        }
           width={190}
           height={30}
         />
@@ -84,11 +84,11 @@ const Container = ({ hoursData, loading, error, toggle }) => {
           <div key={index} className="containerItem">
             {loading ? (
               <Skeleton
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
-                }
+              sx={
+                toggle === "dark"
+                  ? { bgcolor: "#E2DFD2" }
+                  : null
+              }
                 width={70}
               />
             ) : (
@@ -102,11 +102,11 @@ const Container = ({ hoursData, loading, error, toggle }) => {
             )}
             {loading ? (
               <Skeleton
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
-                }
+              sx={
+                toggle === "dark"
+                  ? { bgcolor: "#E2DFD2" }
+                  : null
+              }
                 variant="circular"
                 width={50}
                 height={50}
@@ -120,11 +120,11 @@ const Container = ({ hoursData, loading, error, toggle }) => {
             )}
             {loading ? (
               <Skeleton
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
-                }
+              sx={
+                toggle === "dark"
+                  ? { bgcolor: "#E2DFD2" }
+                  : null
+              }
                 width={70}
               />
             ) : (

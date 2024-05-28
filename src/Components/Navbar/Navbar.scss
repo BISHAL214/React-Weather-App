@@ -6,7 +6,6 @@
   border-radius: 1.5rem;
   background: transparent;
   background-size: 400%;
-  color: #fff;
   border: none;
   cursor: pointer;
 
@@ -31,27 +30,16 @@
     position: absolute;
     top: 0;
     left: 0;
+    background: linear-gradient(
+      82.3deg,
+      rgba(150, 93, 233, 1) 10.8%,
+      rgba(99, 88, 238, 1) 94.3%
+    );
     transform: scaleX(0);
     transform-origin: 0 50%;
     width: 100%;
     height: inherit;
     border-radius: inherit;
     transition: all 0.475s;
-  }
-
-  &.dark-bg::before {
-    background: linear-gradient(
-      82.3deg,
-      rgba(150, 93, 233, 1) 10.8%,
-      rgba(99, 88, 238, 1) 94.3%
-    );
-  }
-
-  &.light-bg::before {
-    background: linear-gradient(
-      82.3deg,
-      rgb(186, 233, 93) 10.8%,
-      rgb(238, 88, 165) 94.3%
-    );
   }
 }

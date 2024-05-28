@@ -9,14 +9,12 @@ const AirQuality = (props) => {
   return (
     <div
       className={`${
-        toggle === "dark" ? "dark-bg" : "light-bg"
+        toggle === "dark" ? "dark-bg" : "bg-white"
       } air-quality-container`}
     >
       {loading ? (
         <Skeleton
-          sx={
-            toggle === "dark" ? { bgcolor: "#E2DFD2" } : { bgcolor: "#333333" }
-          }
+          sx={toggle === "dark" ? { bgcolor: "#E2DFD2" } : null}
           height={30}
           width={200}
         />
@@ -35,11 +33,7 @@ const AirQuality = (props) => {
           <div className="flex justify-between items-center gap-16">
             {loading ? (
               <Skeleton
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
-                }
+                sx={toggle === "dark" ? { bgcolor: "#E2DFD2" } : null}
                 width={70}
                 height={30}
               />
@@ -57,7 +51,7 @@ const AirQuality = (props) => {
                 sx={
                   toggle === "dark"
                     ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
+                    : null
                 }
                 width={100}
                 height={30}
@@ -77,7 +71,7 @@ const AirQuality = (props) => {
                 sx={
                   toggle === "dark"
                     ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
+                    : null
                 }
                 width={70}
                 height={30}
@@ -96,7 +90,7 @@ const AirQuality = (props) => {
                 sx={
                   toggle === "dark"
                     ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
+                    : null
                 }
                 width={100}
                 height={30}
@@ -116,17 +110,17 @@ const AirQuality = (props) => {
             sx={
               toggle === "dark"
                 ? { bgcolor: "#E2DFD2" }
-                : { bgcolor: "#333333" }
+                : null
             }
             height={10}
           />
         ) : (
           <Divider
-          sx={
-            toggle === "dark"
-              ? { bgcolor: "#E2DFD2" }
-              : { bgcolor: "#333333" }
-          }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
             orientation="horizontal"
             variant="middle"
           />
@@ -139,7 +133,7 @@ const AirQuality = (props) => {
                 sx={
                   toggle === "dark"
                     ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
+                    : null
                 }
                 width={70}
                 height={30}
@@ -158,7 +152,7 @@ const AirQuality = (props) => {
                 sx={
                   toggle === "dark"
                     ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
+                    : null
                 }
                 width={100}
                 height={30}
@@ -178,7 +172,7 @@ const AirQuality = (props) => {
                 sx={
                   toggle === "dark"
                     ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
+                    : null
                 }
                 width={70}
                 height={30}
@@ -197,7 +191,7 @@ const AirQuality = (props) => {
                 sx={
                   toggle === "dark"
                     ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
+                    : null
                 }
                 width={100}
                 height={30}
@@ -217,17 +211,17 @@ const AirQuality = (props) => {
             sx={
               toggle === "dark"
                 ? { bgcolor: "#E2DFD2" }
-                : { bgcolor: "#333333" }
+                : null
             }
             height={10}
           />
         ) : (
           <Divider
-          sx={
-            toggle === "dark"
-              ? { bgcolor: "#E2DFD2" }
-              : { bgcolor: "#333333" }
-          }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
             orientation="horizontal"
             variant="middle"
           />
@@ -240,7 +234,7 @@ const AirQuality = (props) => {
                 sx={
                   toggle === "dark"
                     ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
+                    : null
                 }
                 width={70}
                 height={30}
@@ -259,7 +253,7 @@ const AirQuality = (props) => {
                 sx={
                   toggle === "dark"
                     ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
+                    : null
                 }
                 width={100}
                 height={30}
@@ -279,7 +273,7 @@ const AirQuality = (props) => {
                 sx={
                   toggle === "dark"
                     ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
+                    : null
                 }
                 width={70}
                 height={30}
@@ -298,7 +292,7 @@ const AirQuality = (props) => {
                 sx={
                   toggle === "dark"
                     ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
+                    : null
                 }
                 width={100}
                 height={30}

@@ -6,7 +6,7 @@ const WeatherDisplay = (props) => {
   const { data, loading, error, toggle } = props;
 
   return (
-    <div className={`${toggle === "dark" ? "dark-bg" : "light-bg"} weather-container`}>
+    <div className={`${toggle === "dark" ? "dark-bg" : "bg-white"} weather-container`}>
       <div className="weather-header">
         <div className=" flex flex-col">
           <span
@@ -16,11 +16,11 @@ const WeatherDisplay = (props) => {
           >
             {loading ? (
               <Skeleton
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
-                }
+              sx={
+                toggle === "dark"
+                  ? { bgcolor: "#E2DFD2" }
+                  : null
+              }
                 width={210}
               />
             ) : (
@@ -34,11 +34,11 @@ const WeatherDisplay = (props) => {
           >
             {loading ? (
               <Skeleton
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
-                }
+              sx={
+                toggle === "dark"
+                  ? { bgcolor: "#E2DFD2" }
+                  : null
+              }
                 width={210}
                 height={30}
               />
@@ -54,11 +54,11 @@ const WeatherDisplay = (props) => {
         >
           {loading ? (
             <Skeleton
-              sx={
-                toggle === "dark"
-                  ? { bgcolor: "#E2DFD2" }
-                  : { bgcolor: "#333333" }
-              }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
               width={200}
             />
           ) : (
@@ -76,11 +76,11 @@ const WeatherDisplay = (props) => {
           >
             {loading ? (
               <Skeleton
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" } 
-                }
+              sx={
+                toggle === "dark"
+                  ? { bgcolor: "#E2DFD2" }
+                  : null
+              }
                 className=" relative"
                 width={120}
                 height={80}
@@ -91,11 +91,11 @@ const WeatherDisplay = (props) => {
           </h1>
           {loading ? (
             <Skeleton
-              sx={
-                toggle === "dark"
-                  ? { bgcolor: "#E2DFD2" }
-                  : { bgcolor: "#333333" }
-              }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
               height={30}
             />
           ) : (
@@ -111,11 +111,11 @@ const WeatherDisplay = (props) => {
         <div className="humidity">
           {loading ? (
             <Skeleton
-              sx={
-                toggle === "dark"
-                  ? { bgcolor: "#E2DFD2" }
-                  : { bgcolor: "#333333" }
-              }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
               width={120}
               height={80}
             />
@@ -130,11 +130,11 @@ const WeatherDisplay = (props) => {
           )}
           {loading ? (
             <Skeleton
-              sx={
-                toggle === "dark"
-                  ? { bgcolor: "#E2DFD2" }
-                  : { bgcolor: "#333333" }
-              }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
               height={30}
             />
           ) : (
@@ -155,11 +155,11 @@ const WeatherDisplay = (props) => {
           >
             {loading ? (
               <Skeleton
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
-                }
+              sx={
+                toggle === "dark"
+                  ? { bgcolor: "#E2DFD2" }
+                  : null
+              }
                 width={120}
                 height={80}
               />
@@ -169,11 +169,11 @@ const WeatherDisplay = (props) => {
           </h1>
           {loading ? (
             <Skeleton
-              sx={
-                toggle === "dark"
-                  ? { bgcolor: "#E2DFD2" }
-                  : { bgcolor: "#333333" }
-              }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
               height={30}
             />
           ) : (
@@ -194,11 +194,11 @@ const WeatherDisplay = (props) => {
           >
             {loading ? (
               <Skeleton
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
-                }
+              sx={
+                toggle === "dark"
+                  ? { bgcolor: "#E2DFD2" }
+                  : null
+              }
                 width={120}
                 height={80}
               />
@@ -208,11 +208,11 @@ const WeatherDisplay = (props) => {
           </h1>
           {loading ? (
             <Skeleton
-              sx={
-                toggle === "dark"
-                  ? { bgcolor: "#E2DFD2" }
-                  : { bgcolor: "#333333" }
-              }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
               height={30}
             />
           ) : (
@@ -233,11 +233,11 @@ const WeatherDisplay = (props) => {
           >
             {loading ? (
               <Skeleton
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
-                }
+              sx={
+                toggle === "dark"
+                  ? { bgcolor: "#E2DFD2" }
+                  : null
+              }
                 width={120}
                 height={80}
               />
@@ -247,11 +247,11 @@ const WeatherDisplay = (props) => {
           </h1>
           {loading ? (
             <Skeleton
-              sx={
-                toggle === "dark"
-                  ? { bgcolor: "#E2DFD2" }
-                  : { bgcolor: "#333333" }
-              }
+            sx={
+              toggle === "dark"
+                ? { bgcolor: "#E2DFD2" }
+                : null
+            }
               height={30}
             />
           ) : (

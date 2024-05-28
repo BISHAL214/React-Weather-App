@@ -6,3 +6,4 @@ export { default as AirQuality } from "./Air-Quality/AirQuality";
 export { default as DailyForecast } from "./Daily-Forecast/DailyForecast";
 export { default as Container } from "./ForeCastContainer/Container";
 export { default as Map } from "./Weather-Map/Map";
+export { default as MenuDailyForeCast } from "./Menu-Daily-Forecast/DailyForeCast.jsx";

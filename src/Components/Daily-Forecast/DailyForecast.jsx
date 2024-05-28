@@ -20,14 +20,16 @@ const DailyForecast = (props) => {
   return (
     <div
       className={`${
-        toggle === "dark" ? "dark-bg" : "light-bg"
+        toggle === "dark" ? "dark-bg" : "bg-white"
       } daily-forecast-container`}
     >
       {loading ? (
         <Skeleton
-          sx={
-            toggle === "dark" ? { bgcolor: "#E2DFD2" } : { bgcolor: "#333333" }
-          }
+        sx={
+          toggle === "dark"
+            ? { bgcolor: "#E2DFD2" }
+            : null
+        }
           width={200}
           height={30}
         />
@@ -45,31 +47,31 @@ const DailyForecast = (props) => {
           <div key={index}>
             {loading ? (
               <Skeleton
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
-                }
+              sx={
+                toggle === "dark"
+                  ? { bgcolor: "#E2DFD2" }
+                  : null
+              }
                 height={5}
               />
             ) : (
               <Divider
-                sx={
-                  toggle === "dark"
-                    ? { bgcolor: "#E2DFD2" }
-                    : { bgcolor: "#333333" }
-                }
+              sx={
+                toggle === "dark"
+                  ? { bgcolor: "#E2DFD2" }
+                  : null
+              }
                 orientation="horizontal"
               />
             )}
             <div className=" flex justify-between items-center m-[4px]">
               {loading ? (
                 <Skeleton
-                  sx={
-                    toggle === "dark"
-                      ? { bgcolor: "#E2DFD2" }
-                      : { bgcolor: "#333333" }
-                  }
+                sx={
+                  toggle === "dark"
+                    ? { bgcolor: "#E2DFD2" }
+                    : null
+                }
                   width={70}
                 />
               ) : (
@@ -86,11 +88,11 @@ const DailyForecast = (props) => {
               <div className=" flex flex-row justify-center items-center gap-5">
                 {loading ? (
                   <Skeleton
-                    sx={
-                      toggle === "dark"
-                        ? { bgcolor: "#E2DFD2" }
-                        : { bgcolor: "#333333" }
-                    }
+                  sx={
+                    toggle === "dark"
+                      ? { bgcolor: "#E2DFD2" }
+                      : null
+                  }
                     variant="circular"
                     width={80}
                     height={80}
@@ -104,11 +106,11 @@ const DailyForecast = (props) => {
                 )}
                 {loading ? (
                   <Skeleton
-                    sx={
-                      toggle === "dark"
-                        ? { bgcolor: "#E2DFD2" }
-                        : { bgcolor: "#333333" }
-                    }
+                  sx={
+                    toggle === "dark"
+                      ? { bgcolor: "#E2DFD2" }
+                      : null
+                  }
                     width={100}
                   />
                 ) : (
@@ -123,11 +125,11 @@ const DailyForecast = (props) => {
               </div>
               {loading ? (
                 <Skeleton
-                  sx={
-                    toggle === "dark"
-                      ? { bgcolor: "#E2DFD2" }
-                      : { bgcolor: "#333333" }
-                  }
+                sx={
+                  toggle === "dark"
+                    ? { bgcolor: "#E2DFD2" }
+                    : null
+                }
                   width={50}
                 />
               ) : (
