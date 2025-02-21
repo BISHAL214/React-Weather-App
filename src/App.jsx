@@ -13,9 +13,9 @@ import Navbar from "./Components/Navbar/Navbar.jsx";
 import DailyForeCast from "./Components/Menu-Daily-Forecast/DailyForeCast.jsx";
 
 export default function App() {
-  const [currentLocation, setCurrentLocation] = useState(null);
+  const [currentLocation, setCurrentLocation] = useState();
   const [currentLocationWeatherData, setCurrentLocationWeatherData] =
-    useState(null);
+    useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
